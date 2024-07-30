@@ -3,16 +3,28 @@ import { Button } from './components/Button'
 import { ItemCount } from './components/ItemCount/ItemCount'
 import ItemListContainer from './components/ItemListContainer'
 import NavBar from './components/NavBar'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 import PostsContainer from './components/PostsContainer'
+import ItemDetailContainer from './components/ItemDetailContainer'
 
 export function App() {
 
   return (
     <>
-      {/* <NavBar/>
-      <ItemListContainer greeting="hola"/> */}
-      <PostsContainer/>
+
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={ <ItemListContainer greeting="hola" />}/>
+        <Route path='/categoria/:categoria' element={ <ItemListContainer greeting="hola" />}/>
+        <Route path='/detalle/:id' element={<ItemDetailContainer/>} />
+        <Route path='*' element={<h1>Ey! te perdiste, volve al inicio y compra!</h1>} /> 
+      </Routes>
+
+    </BrowserRouter>
+
+
     </>
   )
 }
