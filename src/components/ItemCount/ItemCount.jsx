@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from '../Button'
+// import Button from 'react-bootstrap/Button';
 import './itemCount.css'
+import { Button } from '../Button'
+import { ItemList } from '../ItemList'
 
 export const ItemCount = () => {
     const [ count, setCount ] = useState(1)
@@ -21,9 +23,12 @@ const sumar  = ()=> {
 
   return (
     <div className='container'>
-        <Button color="green" texto="-" funcion={restar} />
+        <Button variant='primary' onClick={restar} >  -   </Button> 
         <p>{count}</p>
-        <Button color="green" texto="+" funcion={sumar} />
+        <Button color="green" funcion={sumar} >
+          <ItemList/>
+          +
+        </Button>
     </div>
   )
 }

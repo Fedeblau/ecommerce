@@ -1,0 +1,9 @@
+[
+    {   "id": 1,
+        "title":"mate",
+        "precio":30000,
+        "tock": 10,
+        "categoria": "mate"
+    }
+
+]

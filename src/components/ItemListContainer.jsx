@@ -10,13 +10,17 @@ const ItemListContainer = ({greeting}) => {
   console.log("Mi estado", items)
 
   useEffect(() => {
+   fetch("http://fakestoreapi.com/products?limit=9&sort=desc")
+   .then(res => res.json())
+   .then(data => setItems(data))
+   .finally(setCargando(false))
     //pedido de los datos
     //esperar que lleguen
     //guardarlos en el estado items
     //pasarlo por props a ItemList
-   getProducts().then(prods => setItems(prods))
-   .catch(err => err)
-   .finally(() => setCargando(false))
+  //  getProducts().then(prods => setItems(prods))
+  //  .catch(err => err)
+  //  .finally(() => setCargando(false))
   }, [])
 
   if(cargando){

@@ -2,3 +2,17 @@ nav{
   display: flex;
   background-color: aquamarine;
 }
+
+
+.container{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+img{
+  width: 80px;
+  margin: auto;
+}
