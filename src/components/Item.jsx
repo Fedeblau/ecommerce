@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ItemCount } from './ItemCount/ItemCount'
 import { Button } from './Button'
-import ItemDetailContainer from './ItemDetailContainer'
+
 import { Link } from 'react-router-dom'
 
 export const Item = ({producto}) => {
@@ -21,9 +21,7 @@ export const Item = ({producto}) => {
         <Button color="blue" funcion={mostrarDetalles}> 
           <Link to={`/detalle/${producto.id}`}>Ver Detalles </Link> 
         </Button>
-        {
-          isVisible ? <ItemDetailContainer id={producto.id} /> : <p>dale clickea el boton</p>
-        }
+
     </div>
   )
 }

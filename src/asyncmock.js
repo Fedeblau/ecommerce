@@ -10,13 +10,16 @@ const items = [
         nombre:"zapato",
         precio:3000,
         stock: 13,
-        categoria: "calzado"
+        categoria: "calzado",
+        image:"https://img.freepik.com/vector-gratis/dibujado-mano-ilustracion-dibujos-animados-zapatos-correr_23-2150920427.jpg?t=st=1723587344~exp=1723590944~hmac=78fd02dfceb51c93f42911e60a420ef8048a4ba5955fc7b63650cd91ab0b31e3&w=740"
     },
     {   id: 3,
         nombre:"termo",
         precio:60000,
         stock: 10,
-        categoria:"mate"
+        categoria:"mate", 
+        image: "https://img.freepik.com/foto-gratis/maqueta-termo-primer-plano-sobre-fondo-gris_23-2148295783.jpg?t=st=1723587374~exp=1723590974~hmac=712873ae7b3f5b5d23ebacd6d3858187b85ecb04f1b5d6dcbf171f3e4742c86a&w=740"
+        
     },
     {   id: 4,
         nombre:"zapatilla",
@@ -49,7 +52,7 @@ export const getProducts = () =>{
     return new Promise( (resolve, reject) => {
         setTimeout(() => {
             resolve(items)            
-        }, 2000);
+        }, 20);
     })
 }
 
@@ -57,6 +60,6 @@ export const getProductById = (id) =>{
     return new Promise( (resolve, reject) => {
         setTimeout(() => {
             resolve(items.find(e => e.id === id*1))            
-        }, 500);
+        }, 50);
     })
 }
