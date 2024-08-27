@@ -4,7 +4,7 @@ import { ItemList } from './ItemList'
 import { useParams } from 'react-router-dom'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { db } from '../servicios/firebaseConfig'
-import { Spinner } from "@material-tailwind/react";
+
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -47,7 +47,7 @@ const ItemListContainer = ({ greeting }) => {
 
   if (cargando) {
     return (
-      <Spinner />
+      <h2>Cargando....</h2>
     );
   }
 
