@@ -22,9 +22,7 @@ export const ItemDetailContainer = () => {
     const productRef = doc(db, "productos", id)
     getDoc(productRef).then(snapshot => {
       setProd(snapshot.data())      
-    }
-
-    ).finally(setCargando(false))
+    }).finally(setCargando(false))
     
   }, [id])
 

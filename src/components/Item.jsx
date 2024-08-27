@@ -9,11 +9,14 @@ export const Item = ({producto}) => {
 
   const mostrarDetalles = () =>{
     setIsVisible(true)
+
   }
 
+  const cardCN = 'flex flex-col bg-lime-200 rounded p-4 items-center justify-between w-2/5 '
+
   return (
-    <div className='cardReal'>
-        <h3>{producto.nombre}</h3>
+    <div className={cardCN}>
+        <h3 className='texl-2lg font-bold text-sky-500 uppercase '>{producto.nombre}</h3>
         {/* <img src={producto.image} alt="foto del producto" /> */}
         <p>{producto.precio}</p>
         <p>{producto.categoria}</p>

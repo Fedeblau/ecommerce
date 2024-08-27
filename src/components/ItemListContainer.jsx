@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { getProducts } from '../asyncmock'
 import { ItemList } from './ItemList'
 import { useParams } from 'react-router-dom'
-import { getDocs, collection, query, where  } from 'firebase/firestore'
+import { getDocs, collection, query, where } from 'firebase/firestore'
 import { db } from '../servicios/firebaseConfig'
+import { Spinner } from "@material-tailwind/react";
 
 
-const ItemListContainer = ({greeting}) => {
-  const [items , setItems] = useState([])
-  const [cargando , setCargando ] = useState(true)
+const ItemListContainer = ({ greeting }) => {
+  const [items, setItems] = useState([])
+  const [cargando, setCargando] = useState(true)
 
   const { categoria } = useParams()
- 
+
 
   useEffect(() => {
     setCargando(true)
@@ -24,35 +25,37 @@ const ItemListContainer = ({greeting}) => {
     //   .catch(err => err)
     //   .finally(() => setCargando(false))
     // }
-    if(categoria) {
+    if (categoria) {
       const productosPorCat = query(collection(db, "productos"), where("categoria", "==", categoria))
       getDocs(productosPorCat).then(snapshot => {
-        const prods = snapshot.docs.map(doc=> {
+        const prods = snapshot.docs.map(doc => {
           const data = doc.data()
-          return { id:doc.id , ...data }
+          return { id: doc.id, ...data }
         })
         setItems(prods)
-        }).finally(setCargando(false))
-    }else{
+      }).finally(setCargando(false))
+    } else {
       getDocs(collection(db, "productos")).then(snapshot => {
-        const prods = snapshot.docs.map(doc =>{
+        const prods = snapshot.docs.map(doc => {
           const data = doc.data()
-          return {id: doc.id , ...data }
+          return { id: doc.id, ...data }
         })
         setItems(prods)
       }).finally(setCargando(false))
     }
-    }, [categoria])
+  }, [categoria])
 
-  if(cargando){
+  if (cargando) {
     return (
-      <h3>cargando...</h3>
-    )
+      <Spinner />
+    );
   }
-  
+
+
+
   return (
-    <div className='catalogo'>
-      <ItemList items={items}/>
+    <div className='flex p-10 gap-2 justify-center'>
+      <ItemList items={items} />
     </div>
   )
 }
