@@ -7,6 +7,7 @@ import Cart from './components/Cart'
 import { CartContextProvider } from './context/CartContext'
 import { useContext } from 'react'
 import { ThemeContext } from './context/ThemeContext'
+import Checkout from './components/Checkout'
 
 export function App() {
 
@@ -25,6 +26,7 @@ export function App() {
         <Route path='/categoria/:categoria' element={ <ItemListContainer greeting="hola" />}/>
         <Route path='/detalle/:id' element={<ItemDetailContainer/>} />
         <Route path='/cart' element={<Cart/>} /> 
+        <Route path='/checkout' element={<Checkout/>}/>
         <Route path='*' element={<h1>Ey! te perdiste, volve al inicio y compra!</h1>} /> 
       </Routes>
 

@@ -6,15 +6,12 @@ export const CartContext = createContext()
 
 export const CartContextProvider = ( {children} ) => {
     const [cart, setCart] = useState([])
-
     const addToCart = (prod) =>{
         setCart([...cart, prod])
     }
-
     const vaciarCart = () => {
         setCart([])
     }
-
     const eliminarProducto = (id) =>{
         const newCart = cart.filter(e => e.id !== id)
         setCart(newCart)
